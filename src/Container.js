@@ -60,10 +60,12 @@ Container.propTypes = {
 	//children: PropTypes.arrayOf(PropTypes.oneOfType([Draggable, Container])),
 	style: PropTypes.object,
 	dragHandleSelector: PropTypes.string,
+	nonDragAreaSelector: PropTypes.string,
 	dragBeginDelay: PropTypes.number,
 	animationDuration: PropTypes.number,
 	getChildPayload: PropTypes.func,
-	dragClass: PropTypes.string
+	dragClass: PropTypes.string,
+	autoScrollEnabled: PropTypes.string
 };
 
 Container.defaultProps = {
