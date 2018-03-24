@@ -1,11 +1,11 @@
 {
   "name": "react-smooth-dnd",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "Drag and Drop library",
   "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode development"
+    "build": "webpack --mode production"
   },
   "keywords": [
     "react",
@@ -29,6 +29,6 @@
     "webpack-cli": "^2.0.13"
   },
   "dependencies": {
-    "smooth-dnd": "^0.1.1"
+    "smooth-dnd": "^0.1.5"
   }
 }
