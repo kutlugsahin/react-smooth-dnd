@@ -2,10 +2,10 @@
   "name": "react-smooth-dnd",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production"
+    "build": "webpack --mode development"
   },
   "author": "",
   "license": "ISC",

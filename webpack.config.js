@@ -5,8 +5,10 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'), // eslint-disable-line
 		filename: 'index.js',
-		library: 'ReactSmoothDND'
+		library: 'ReactSmoothDND',
+		libraryTarget: "umd",
 	},
+	devtool: 'inline-source-map',
 	module: {
 		rules: [{
 			test: /\.(js|jsx)$/,
@@ -31,6 +33,12 @@ module.exports = {
 			commonjs2: 'smooth-dnd',
 			amd: 'smooth-dnd',
 			root: 'SmoothDND'
+		},
+		'prop-types': {
+			commonjs: 'prop-types',
+			commonjs2: 'prop-types',
+			amd: 'prop-types',
+			root: 'PropTypes'
 		}
 	}
 };
