@@ -61,7 +61,7 @@ Component that contains the draggable elements or components. Each of its childr
 |dragBeginDelay|number| `0` (`200` for touch devices)|Time in milisecond. Delay to start dragging after item is pressed. Moving cursor before the delay more than 5px will cancel dragging.
 |animationDuration|number|`180`|Animation duration in milisecond. To be consistent this animation duration will be applied to both drop and reorder animations.|
 |autoScrollEnabled|boolean|`true`|First scrollable parent will scroll automatically if dragging item is close to boundaries.
-|dragClass|string|`undefined`|Class to be added to the ghost item being dragged. The class will be added after it's added to the DOM so any transition in the class will be applies as intended.
+|dragClass|string|`undefined`|Class to be added to the ghost item being dragged. The class will be added after it's added to the DOM so any transition in the class will be applied as intended.
 |dropClass|string|`undefined`|Class to be added to the ghost item just before the drop animation begins.|
 |onDragStart|function|`undefined`|*See descriptions below*|
 |onDrop|function|`undefined`|*See descriptions below*|
