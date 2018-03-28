@@ -7,6 +7,8 @@ This library consists wrapper React components over <a href="https://github.com/
 **Show, don't tell !**
 >### Demo page: <a href="#">https://kutlugsahin.github.io/smooth-dnd-demo/</a>
 
+>#### Demo source code: <a href="#">https://github.com/kutlugsahin/smooth-dnd-demo/tree/master/src/demo/pages/</a>
+
 ### Installation
 
 ```js
