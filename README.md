@@ -4,7 +4,7 @@ A lightweight Drag and Drop, sortable library for React. There is no external de
 
 This library consists wrapper React components over <a href="https://github.com/kutlugsahin/smooth-dnd/">smooth-dnd</a> library.
 
->Show, don't tell !
+**Show, don't tell !**
 >### Demo page: <a href="#">https://kutlugsahin.github.io/smooth-dnd-demo/</a>
 
 ### Installation
