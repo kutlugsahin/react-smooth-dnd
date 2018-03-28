@@ -14,7 +14,6 @@ $ npm i react-smooth-dnd
 ```
 
 ## Usage
----
 
 #### JSX
 
@@ -43,7 +42,6 @@ class SimpleSortableList extends Component {
 ```
 
 ## API
----
 
 ### **Container**
 
