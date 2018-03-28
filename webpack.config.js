@@ -6,7 +6,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'), // eslint-disable-line
 		filename: 'index.js',
-		library: 'ReactSmoothDND',
+		library: 'ReactSmoothDnD',
 		libraryTarget: "umd",
 	},
 	module: {
