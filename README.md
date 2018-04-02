@@ -1,18 +1,16 @@
- # react-smooth-dnd
+# react-smooth-dnd
 
-A lightweight Drag and Drop, sortable library for React. There is no external dependencies. It uses css transitions for animations so it's hardware accelerated whenever possible.
+A fast and lightweight drag&drop, sortable library for React with many configuration options covering many d&d scenarios. It uses css transitions for animations so it's hardware accelerated whenever possible.
 
 This library consists wrapper React components over <a href="https://github.com/kutlugsahin/smooth-dnd/">smooth-dnd</a> library.
 
 **Show, don't tell !**
->### Demo page: <a href="#">https://kutlugsahin.github.io/smooth-dnd-demo/</a>
-
->#### Demo source code: <a href="#">https://github.com/kutlugsahin/smooth-dnd-demo/tree/master/src/demo/pages/</a>
+### <a href="https://kutlugsahin.github.io/smooth-dnd-demo/">Demo page</a>
 
 ### Installation
 
-```js
-$ npm i react-smooth-dnd
+```shell
+npm i react-smooth-dnd
 ```
 
 ## Usage
