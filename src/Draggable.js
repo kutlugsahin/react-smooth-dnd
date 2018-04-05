@@ -10,7 +10,7 @@ class Draggable extends Component {
 	render() {
 		const clsName = `${this.props.className ? (this.props.className + ' ') : ''}`
 		return (
-			<div {...this.props} className={`${clsName}${wrapperClass} ${this.context.orientation} ${animationClass}`} >
+			<div {...this.props} className={`${clsName}${wrapperClass} ${animationClass}`} >
 				{this.props.children}
 			</div>
 		);
@@ -19,10 +19,6 @@ class Draggable extends Component {
 
 Draggable.propTypes = {
 	payload: PropTypes.object,
-};
-
-Draggable.contextTypes = {
-	orientation: PropTypes.string
 };
 
 export default Draggable;

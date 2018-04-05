@@ -32,12 +32,6 @@ class Container extends Component {
 		}
 	}
 
-	getChildContext() {
-		return {
-			orientation: this.props.orientation
-		};
-	}
-
 	render() {
 		return (
 			<div style={this.props.style} ref={element => { this.containerDiv = element; }}>
@@ -71,10 +65,6 @@ Container.propTypes = {
 Container.defaultProps = {
 	behaviour: 'move',
 	orientation: 'vertical'
-};
-
-Container.childContextTypes = {
-	orientation: PropTypes.string
 };
 
 export default Container;
