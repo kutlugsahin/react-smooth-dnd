@@ -51,15 +51,23 @@ Container.propTypes = {
 	behaviour: PropTypes.oneOf(['move', 'copy']),
 	groupName: PropTypes.string,
 	orientation: PropTypes.oneOf(['horizontal', 'vertical']),
-	//children: PropTypes.arrayOf(PropTypes.oneOfType([Draggable, Container])),
+	children: PropTypes.arrayOf(PropTypes.instanceOf(Draggable)),
 	style: PropTypes.object,
 	dragHandleSelector: PropTypes.string,
 	nonDragAreaSelector: PropTypes.string,
 	dragBeginDelay: PropTypes.number,
 	animationDuration: PropTypes.number,
-	getChildPayload: PropTypes.func,
+	autoScrollEnabled: PropTypes.string,
+	lockAxis: PropTypes.string,
 	dragClass: PropTypes.string,
-	autoScrollEnabled: PropTypes.string
+	dropClass: PropTypes.string,
+	onDragStart: PropTypes.func,
+	onDrop: PropTypes.func,
+	getChildPayload: PropTypes.func,
+	shouldAnimateDrop: PropTypes.func,
+	shouldAcceptDrop: PropTypes.func,
+	onDragEnter: PropTypes.func,
+	onDragLeave: PropTypes.func,
 };
 
 Container.defaultProps = {
