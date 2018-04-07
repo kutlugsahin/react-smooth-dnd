@@ -8,7 +8,7 @@ class Container extends Component {
 	constructor(props) {
 		super(props);
 		this.getContainerOptions = this.getContainerOptions.bind(this);
-		this.dropHandler = dropHandlers.reactDropHandler();
+		container.dropHandler = dropHandlers.reactDropHandler().handler;
 		this.prevContainer = null;
 	}
 
@@ -41,9 +41,7 @@ class Container extends Component {
 	}
 
 	getContainerOptions(props) {
-		return Object.assign({}, props, {
-			dropHandler: this.dropHandler.handler
-		});
+		return Object.assign({}, props);
 	}
 }
 
