@@ -49,7 +49,6 @@ Container.propTypes = {
 	behaviour: PropTypes.oneOf(['move', 'copy']),
 	groupName: PropTypes.string,
 	orientation: PropTypes.oneOf(['horizontal', 'vertical']),
-	children: PropTypes.arrayOf(PropTypes.instanceOf(Draggable)),
 	style: PropTypes.object,
 	dragHandleSelector: PropTypes.string,
 	nonDragAreaSelector: PropTypes.string,
