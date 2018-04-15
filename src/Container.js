@@ -4,11 +4,13 @@ import container from 'smooth-dnd';
 import { dropHandlers } from 'smooth-dnd';
 import Draggable from './Draggable';
 
+container.dropHandler = dropHandlers.reactDropHandler().handler;
+container.wrapChild = p => p; // dont wrap children they will already be wrapped
+
 class Container extends Component {
 	constructor(props) {
 		super(props);
-		this.getContainerOptions = this.getContainerOptions.bind(this);
-		container.dropHandler = dropHandlers.reactDropHandler().handler;
+		this.getContainerOptions = this.getContainerOptions.bind(this);		
 		this.prevContainer = null;
 	}
 
@@ -46,7 +48,7 @@ class Container extends Component {
 }
 
 Container.propTypes = {
-	behaviour: PropTypes.oneOf(['move', 'copy']),
+	behaviour: PropTypes.oneOf(['move', 'copy', 'drag-zone']),
 	groupName: PropTypes.string,
 	orientation: PropTypes.oneOf(['horizontal', 'vertical']),
 	style: PropTypes.object,
