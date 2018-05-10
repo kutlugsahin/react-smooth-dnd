@@ -8,6 +8,7 @@ module.exports = {
 		filename: 'index.js',
 		library: 'ReactSmoothDnD',
 		libraryTarget: "umd",
+		globalObject: 'this'
 	},
 	module: {
 		rules: [{
