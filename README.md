@@ -76,15 +76,29 @@ Component that contains the draggable elements or components. Each of its childr
 
 ### onDragStart
 
-The function to be called only by the container which drag starts from.
+The function to be called by all container when drag start.
 ```js
-function onDragStart(index, payload) {
+function onDragStart({isSource, payload, willAcceptDrop}) {
   ...
 }
 ```
 #### Parameters
-- **index** : `number` : index of the child item
+- **isSource** : `boolean` : true if it is called by the container which drag starts from otherwise false.
 - **payload** : `object` : the payload object that is returned by getChildPayload function. It will be undefined in case getChildPayload is not set.
+- **willAcceptDrop** : `boolean` : true if the dragged item can be dropped into the container, otherwise false.
+
+### onDragEnd
+
+The function to be called by all container when drag ends. Called before **onDrop** function
+```js
+function onDragEnd({isSource, payload, willAcceptDrop}) {
+  ...
+}
+```
+#### Parameters
+- **isSource** : `boolean` : true if it is called by the container which drag starts from, otherwise false.
+- **payload** : `object` : the payload object that is returned by getChildPayload function. It will be undefined in case getChildPayload is not set.
+- **willAcceptDrop** : `boolean` : true if the dragged item can be dropped into the container, otherwise false.
 
 ### onDrop
 
