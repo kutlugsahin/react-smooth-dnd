@@ -5,8 +5,12 @@ const {
 	wrapperClass
 } = constants;
 
-class Draggable extends Component {  
+class Draggable extends Component {
 	render() {
+		if (this.props.render) {
+			return React.cloneElement(this.props.render(), { className: wrapperClass });
+		}
+		
 		const clsName = `${this.props.className ? (this.props.className + ' ') : ''}`
 		return (
 			<div {...this.props} className={`${clsName}${wrapperClass}`} >
@@ -17,7 +21,7 @@ class Draggable extends Component {
 }
 
 Draggable.propTypes = {
-	payload: PropTypes.object,
+	render: PropTypes.func
 };
 
 export default Draggable;
