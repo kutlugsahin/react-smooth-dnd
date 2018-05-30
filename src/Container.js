@@ -55,7 +55,17 @@ class Container extends Component {
 	}
 
 	getContainerOptions(props) {
-		return Object.assign({}, props);
+		return Object.assign({}, props, {
+      onDragStart: (...p) => props.onDragStart(...p),
+      onDragEnd: (...p) => props.onDragEnd(...p),
+      onDrop: (...p) => props.onDrop(...p),
+      getChildPayload: (...p) => props.getChildPayload(...p),
+      shouldAnimateDrop: (...p) => props.shouldAnimateDrop(...p),
+      shouldAcceptDrop: (...p) => props.shouldAcceptDrop(...p),
+      onDragEnter: (...p) => props.onDragEnter(...p),
+			onDragLeave: (...p) => props.onDragLeave(...p),
+			render: (...p) => props.render(...p)
+    });
 	}
 }
 
