@@ -19,7 +19,7 @@ class Container extends Component {
 	componentDidMount() {
 		this.containerDiv = this.containerDiv || ReactDOM.findDOMNode(this);
 		this.prevContainer = this.containerDiv;
-		this.container = container(this.containerDiv, this.getContainerOptions(this.props));
+		this.container = container(this.containerDiv, this.getContainerOptions());
 	}
 
 	componentWillUnmount() {
@@ -32,7 +32,7 @@ class Container extends Component {
 		if (this.containerDiv) {
 			if (this.prevContainer && this.prevContainer !== this.containerDiv) {
 				this.container.dispose();
-				this.container = container(this.containerDiv, this.getContainerOptions(this.props));
+				this.container = container(this.containerDiv, this.getContainerOptions());
 				this.prevContainer = this.containerDiv;
 			}
 		}
@@ -54,46 +54,46 @@ class Container extends Component {
 		this.containerDiv = element;
 	}
 
-	getContainerOptions(props) {
+	getContainerOptions() {
 		const functionProps = {};
 
-		if (props.onDragStart) {
-			functionProps.onDragStart = (...p) => props.onDragStart(...p);
+		if (this.props.onDragStart) {
+			functionProps.onDragStart = (...p) => this.props.onDragStart(...p);
 		}
 
-		if (props.onDragEnd) {
-			functionProps.onDragEnd = (...p) => props.onDragEnd(...p);
-		}
+		if (this.props.onDragEnd) {
+			functionProps.onDragEnd = (...p) => this.props.onDragEnd(...p);
+    }
 		
-		if (props.onDrop) {
-			functionProps.onDrop = (...p) => props.onDrop(...p);
-		}
+		if (this.props.onDrop) {
+			functionProps.onDrop = (...p) => this.props.onDrop(...p);
+    }
 		
-		if (props.getChildPayload) {
-      functionProps.getChildPayload = (...p) => props.getChildPayload(...p);
-		}
+		if (this.props.getChildPayload) {
+			functionProps.getChildPayload = (...p) => this.props.getChildPayload(...p);
+    }
 		
-		if (props.shouldAnimateDrop) {
-      functionProps.shouldAnimateDrop = (...p) => props.shouldAnimateDrop(...p);
-		}
+		if (this.props.shouldAnimateDrop) {
+			functionProps.shouldAnimateDrop = (...p) => this.props.shouldAnimateDrop(...p);
+    }
 		
-		if (props.shouldAcceptDrop) {
-      functionProps.shouldAcceptDrop = (...p) => props.shouldAcceptDrop(...p);
-		}
+		if (this.props.shouldAcceptDrop) {
+			functionProps.shouldAcceptDrop = (...p) => this.props.shouldAcceptDrop(...p);
+    }
 		
-		if (props.onDragEnter) {
-      functionProps.onDragEnter = (...p) => props.onDragEnter(...p);
-		}
+		if (this.props.onDragEnter) {
+			functionProps.onDragEnter = (...p) => this.props.onDragEnter(...p);
+    }
 		
-		if (props.onDragLeave) {
-      functionProps.onDragLeave = (...p) => props.onDragLeave(...p);
-		}
+		if (this.props.onDragLeave) {
+			functionProps.onDragLeave = (...p) => this.props.onDragLeave(...p);
+    }
 		
-		if (props.render) {
-      functionProps.render = (...p) => props.render(...p);
+		if (this.props.render) {
+			functionProps.render = (...p) => this.props.render(...p);
     }
 
-		return Object.assign({}, props, functionProps);
+		return Object.assign({}, this.props, functionProps);
 	}
 }
 
