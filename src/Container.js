@@ -55,17 +55,45 @@ class Container extends Component {
 	}
 
 	getContainerOptions(props) {
-		return Object.assign({}, props, {
-      onDragStart: (...p) => props.onDragStart(...p),
-      onDragEnd: (...p) => props.onDragEnd(...p),
-      onDrop: (...p) => props.onDrop(...p),
-      getChildPayload: (...p) => props.getChildPayload(...p),
-      shouldAnimateDrop: (...p) => props.shouldAnimateDrop(...p),
-      shouldAcceptDrop: (...p) => props.shouldAcceptDrop(...p),
-      onDragEnter: (...p) => props.onDragEnter(...p),
-			onDragLeave: (...p) => props.onDragLeave(...p),
-			render: (...p) => props.render(...p)
-    });
+		const functionProps = {};
+
+		if (props.onDragStart) {
+			functionProps.onDragStart = (...p) => props.onDragStart(...p);
+		}
+
+		if (props.onDragEnd) {
+			functionProps.onDragEnd = (...p) => props.onDragEnd(...p);
+		}
+		
+		if (props.onDrop) {
+			functionProps.onDrop = (...p) => props.onDrop(...p);
+		}
+		
+		if (props.getChildPayload) {
+      functionProps.getChildPayload = (...p) => props.getChildPayload(...p);
+		}
+		
+		if (props.shouldAnimateDrop) {
+      functionProps.shouldAnimateDrop = (...p) => props.shouldAnimateDrop(...p);
+		}
+		
+		if (props.shouldAcceptDrop) {
+      functionProps.shouldAcceptDrop = (...p) => props.shouldAcceptDrop(...p);
+		}
+		
+		if (props.onDragEnter) {
+      functionProps.onDragEnter = (...p) => props.onDragEnter(...p);
+		}
+		
+		if (props.onDragLeave) {
+      functionProps.onDragLeave = (...p) => props.onDragLeave(...p);
+		}
+		
+		if (props.render) {
+      functionProps.render = (...p) => props.render(...p);
+    }
+
+		return Object.assign({}, props, functionProps);
 	}
 }
 
