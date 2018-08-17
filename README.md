@@ -66,6 +66,7 @@ Component that contains the draggable elements or components. Each of its childr
 |dropClass|string|`undefined`|Class to be added to the ghost item just before the drop animation begins.|
 |onDragStart|function|`undefined`|*See descriptions below*|
 |onDragEnd|function|`undefined`|*See descriptions below*|
+|onDropReady|function|`undefined`|*See descriptions below*|
 |onDrop|function|`undefined`|*See descriptions below*|
 |getChildPayload|function|`undefined`|*See descriptions below*|
 |shouldAnimateDrop|function|`undefined`|*See descriptions below*|
