@@ -63,35 +63,39 @@ class Container extends Component {
 
 		if (this.props.onDragEnd) {
 			functionProps.onDragEnd = (...p) => this.props.onDragEnd(...p);
-    }
-		
+		}
+
 		if (this.props.onDrop) {
 			functionProps.onDrop = (...p) => this.props.onDrop(...p);
-    }
-		
+		}
+
 		if (this.props.getChildPayload) {
 			functionProps.getChildPayload = (...p) => this.props.getChildPayload(...p);
-    }
-		
+		}
+
 		if (this.props.shouldAnimateDrop) {
 			functionProps.shouldAnimateDrop = (...p) => this.props.shouldAnimateDrop(...p);
-    }
-		
+		}
+
 		if (this.props.shouldAcceptDrop) {
 			functionProps.shouldAcceptDrop = (...p) => this.props.shouldAcceptDrop(...p);
-    }
-		
+		}
+
 		if (this.props.onDragEnter) {
 			functionProps.onDragEnter = (...p) => this.props.onDragEnter(...p);
-    }
-		
+		}
+
 		if (this.props.onDragLeave) {
 			functionProps.onDragLeave = (...p) => this.props.onDragLeave(...p);
-    }
-		
+		}
+
 		if (this.props.render) {
 			functionProps.render = (...p) => this.props.render(...p);
-    }
+		}
+
+		if (this.props.onDropReady) {
+			functionProps.onDropReady = (...p) => this.props.onDropReady(...p);
+		}
 
 		return Object.assign({}, this.props, functionProps);
 	}
