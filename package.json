@@ -1,6 +1,6 @@
 {
   "name": "react-smooth-dnd",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Drag and Drop library",
   "main": "./dist/index.js",
   "scripts": {
@@ -35,6 +35,6 @@
     "webpack-cli": "^2.0.13"
   },
   "dependencies": {
-    "smooth-dnd": "0.6.2"
+    "smooth-dnd": "0.6.3"
   }
 }

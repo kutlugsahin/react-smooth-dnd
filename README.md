@@ -64,6 +64,7 @@ Component that contains the draggable elements or components. Each of its childr
 |autoScrollEnabled|boolean|`true`|First scrollable parent will scroll automatically if dragging item is close to boundaries.
 |dragClass|string|`undefined`|Class to be added to the ghost item being dragged. The class will be added after it's added to the DOM so any transition in the class will be applied as intended.
 |dropClass|string|`undefined`|Class to be added to the ghost item just before the drop animation begins.|
+|removeOnDropOut|boolean|`undefined`|When set true onDrop will be called with a removedIndex if you drop element out of any relevant container|
 |onDragStart|function|`undefined`|*See descriptions below*|
 |onDragEnd|function|`undefined`|*See descriptions below*|
 |onDropReady|function|`undefined`|*See descriptions below*|
@@ -73,6 +74,8 @@ Component that contains the draggable elements or components. Each of its childr
 |shouldAcceptDrop|function|`undefined`|*See descriptions below*|
 |onDragEnter|function|`undefined`|*See descriptions below*|
 |onDragLeave|function|`undefined`|*See descriptions below*|
+|getGhostParent|function|`undefined`|*See descriptions below*|
+
 
 ---
 
@@ -196,6 +199,19 @@ function onDragLeave() {
   ...
 }
 ```
+
+### getGhostParent
+
+The function to be called to get the element that the dragged ghost will be appended. Default parent element is the container itself.
+The ghost element is positioned as 'fixed' and appended to given parent element. 
+But if any anchestor of container has a transform property, ghost element will be positioned relative to that element which breaks the calculations. Thats why if you have any transformed parent element of Containers you should set this property so that it returns any element that has not transformed parent element.
+```js
+function getGhostParent() {
+  // i.e return document.body;
+}
+```
+
+
 
 ### **Draggable**
 

@@ -97,6 +97,10 @@ class Container extends Component {
 			functionProps.onDropReady = (...p) => this.props.onDropReady(...p);
 		}
 
+		if (this.props.getGhostParent) {
+			functionProps.getGhostParent = (...p) => this.props.getGhostParent(...p);
+		}
+
 		return Object.assign({}, this.props, functionProps);
 	}
 }
@@ -122,7 +126,9 @@ Container.propTypes = {
 	shouldAcceptDrop: PropTypes.func,
 	onDragEnter: PropTypes.func,
 	onDragLeave: PropTypes.func,
-	render: PropTypes.func
+	render: PropTypes.func,
+	getGhostParent: PropTypes.func,
+	removeOnDropOut: PropTypes.bool,
 };
 
 Container.defaultProps = {
