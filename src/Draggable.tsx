@@ -5,7 +5,17 @@ const {
 	wrapperClass
 } = constants;
 
-class Draggable extends Component {
+export interface DraggableProps {
+	render?: () => React.ReactElement;
+	className?: string;
+}
+
+class Draggable extends Component<DraggableProps> {
+	public static propsTypes = {
+		render: PropTypes.func,
+		className: PropTypes.string,
+	}
+
 	render() {
 		if (this.props.render) {
 			return React.cloneElement(this.props.render(), { className: wrapperClass });
@@ -19,9 +29,5 @@ class Draggable extends Component {
 		);
 	}
 }
-
-Draggable.propTypes = {
-	render: PropTypes.func
-};
 
 export default Draggable;
