@@ -5,7 +5,7 @@ import { dropHandlers } from 'smooth-dnd';
 import { ContainerOptions, SmoothDnD } from 'smooth-dnd/dist/src/interfaces';
 
 container.dropHandler = dropHandlers.reactDropHandler().handler;
-container.wrapChild = (p: Element) => p; // dont wrap children they will already be wrapped
+container.wrapChild = false;
 
 interface ContainerProps extends ContainerOptions {
 	render?: (rootRef: React.RefObject<any>) => React.ReactElement;
