@@ -9,6 +9,9 @@
     "build": "npm run tsc && npm run bundle"
   },
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "react",
     "sortable",
