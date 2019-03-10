@@ -75,6 +75,7 @@ Component that contains the draggable elements or components. Each of its childr
 |onDragEnter|function|`undefined`|*See descriptions below*|
 |onDragLeave|function|`undefined`|*See descriptions below*|
 |getGhostParent|function|`undefined`|*See descriptions below*|
+|render|function|`undefined`|*See descriptions below*|
 
 
 ---
@@ -211,12 +212,60 @@ function getGhostParent() {
 }
 ```
 
+### render
 
+By default Container uses a div element for component root. You can define what to render as root element by using **render** function. If render function is set, **children** prop of Container will be ignored and return value of the render will be used to render draggables.
+```js
+function render(ref) {
+  // return ReactElement
+}
+```
+#### Parameters
+- **ref** : `object` : React reference object created by *React.createRef()*
+#### Returns
+- **React Element**
+
+```jsx
+<Container render={(ref) => {
+  return (
+    <ul ref={ref}>
+      ...place your <Draggable/> components here
+    </ul>
+  )
+}}/>
+
+```
 
 ### **Draggable**
 
 Wrapper component for Container's children. Every draggable element should be wrapped with **Draggable** component.
 > Make sure to set unique key to **Draggable** especially when it contains other **Container** components
+
+### Props
+
+| Property | Type | Default | Description |
+|-|:-:|:-:|-|
+|render|function|`undefined`|*See descriptions below*|
+
+### render
+
+By default Draggable uses a div element for component root. You can define what to render as root element by using **render** function. If render function is set, **children** prop of Draggable will be ignored and return value of the render will be used to render draggable.
+```jsx
+<Draggable render={() => {
+  return (
+    <li>
+      ...
+    </li>
+  )
+}}/>
+
+```
+#### Parameters
+- **ref** : `object` : React reference object created by *React.createRef()*
+#### Returns
+- **React Element**
+
+
 ## Support on Beerpay
 Hey dude! Help me out for a couple of :beers:!
 
