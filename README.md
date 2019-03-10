@@ -54,7 +54,7 @@ Component that contains the draggable elements or components. Each of its childr
 |-|:-:|:-:|-|
 |children|**Draggable**|null|React children prop. Should be of type **Draggable**. 
 | orientation |string|`vertical` | Orientation of the container. Can be **horizontal** or **vertical**.|
-|behaviour|string|`move`| Property to describe weather the dragging item will be moved or copied to target container. Can be **move** or **copy**.|
+|behaviour|string|`move`| Property to describe weather the dragging item will be moved or copied to target container. If drop-zone is set no draggable will slide when container dragged over. Can be **move** or **copy** or **drop-zone**.|
 |groupName|string|`undefined`|Draggables can be moved between the containers having the same group names. If not set container will not accept drags from outside. This behaviour can be overriden by shouldAcceptDrop function. See below.
 |lockAxis|string|`undefined`|Locks the movement axis of the dragging. Possible values are **x**, **y** or **undefined**.
 |dragHandleSelector|string|`undefined`|Css selector to test for enabling dragging. If not given item can be grabbed from anywhere in its boundaries.|
