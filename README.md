@@ -264,9 +264,3 @@ By default Draggable uses a div element for component root. You can define what 
 - **ref** : `object` : React reference object created by *React.createRef()*
 #### Returns
 - **React Element**
-
-
-## Support on Beerpay
-Hey dude! Help me out for a couple of :beers:!
-
-[![Beerpay](https://beerpay.io/kutlugsahin/react-smooth-dnd/badge.svg?style=beer-square)](https://beerpay.io/kutlugsahin/react-smooth-dnd)  [![Beerpay](https://beerpay.io/kutlugsahin/react-smooth-dnd/make-wish.svg?style=flat-square)](https://beerpay.io/kutlugsahin/react-smooth-dnd?focus=wish)
