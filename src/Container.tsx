@@ -22,7 +22,7 @@ class Container extends Component<ContainerProps> {
 		nonDragAreaSelector: PropTypes.string,
 		dragBeginDelay: PropTypes.number,
 		animationDuration: PropTypes.number,
-		autoScrollEnabled: PropTypes.string,
+		autoScrollEnabled: PropTypes.bool,
 		lockAxis: PropTypes.string,
 		dragClass: PropTypes.string,
 		dropClass: PropTypes.string,

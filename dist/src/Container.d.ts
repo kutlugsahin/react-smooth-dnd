@@ -15,7 +15,7 @@ declare class Container extends Component<ContainerProps> {
         nonDragAreaSelector: PropTypes.Requireable<string>;
         dragBeginDelay: PropTypes.Requireable<number>;
         animationDuration: PropTypes.Requireable<number>;
-        autoScrollEnabled: PropTypes.Requireable<string>;
+        autoScrollEnabled: PropTypes.Requireable<boolean>;
         lockAxis: PropTypes.Requireable<string>;
         dragClass: PropTypes.Requireable<string>;
         dropClass: PropTypes.Requireable<string>;
