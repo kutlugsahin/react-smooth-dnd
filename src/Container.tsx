@@ -14,7 +14,7 @@ interface ContainerProps extends ContainerOptions {
 
 class Container extends Component<ContainerProps> {
 	public static propTypes = {
-		behaviour: PropTypes.oneOf(['move', 'copy', 'drag-zone']),
+		behaviour: PropTypes.oneOf(['move', 'copy', 'drag-zone', 'contain']),
 		groupName: PropTypes.string,
 		orientation: PropTypes.oneOf(['horizontal', 'vertical']),
 		style: PropTypes.object,
