@@ -35,7 +35,15 @@ class Container extends Component<ContainerProps> {
 		onDragLeave: PropTypes.func,
 		render: PropTypes.func,
 		getGhostParent: PropTypes.func,
-		removeOnDropOut: PropTypes.bool,
+    removeOnDropOut: PropTypes.bool,
+    dropPlaceholder: PropTypes.oneOfType([
+      PropTypes.shape({
+        className: PropTypes.string,
+        animationDuration: PropTypes.number,
+        showOnTop: PropTypes.bool,
+      }),
+      PropTypes.bool,
+    ]),
 	};
 
 	public static defaultProps = {
