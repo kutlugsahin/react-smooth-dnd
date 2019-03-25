@@ -127,7 +127,7 @@ class Container extends Component<ContainerProps> {
 
       if (typeof prop === 'function') {
         result[optionName] = (...params: any[]) => {
-          (this.props[optionName] as Function)(...params);
+          return (this.props[optionName] as Function)(...params);
         }
       } else {
         result[optionName] = prop;
