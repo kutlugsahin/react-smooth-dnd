@@ -13,7 +13,7 @@ interface ContainerProps extends ContainerOptions {
 
 class Container extends Component<ContainerProps> {
 	public static propTypes = {
-		behaviour: PropTypes.oneOf(['move', 'copy', 'drag-zone', 'contain']),
+		behaviour: PropTypes.oneOf(['move', 'copy', 'drop-zone', 'contain']),
 		groupName: PropTypes.string,
 		orientation: PropTypes.oneOf(['horizontal', 'vertical']),
 		style: PropTypes.object,
@@ -57,7 +57,8 @@ class Container extends Component<ContainerProps> {
   constructor(props: ContainerProps) {
     super(props);
 		this.getContainerOptions = this.getContainerOptions.bind(this);
-		this.getContainer = this.getContainer.bind(this);
+    this.getContainer = this.getContainer.bind(this);
+    this.isObjectTypePropsChanged = this.isObjectTypePropsChanged.bind(this);
     this.prevContainer = null;
   }
 
@@ -71,14 +72,36 @@ class Container extends Component<ContainerProps> {
     this.container = null!;
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps: ContainerProps) {
     if (this.getContainer()) {
       if (this.prevContainer && this.prevContainer !== this.getContainer()) {
         this.container.dispose();
         this.container = container(this.getContainer(), this.getContainerOptions());
         this.prevContainer = this.getContainer();
+        return;
+      }
+
+      if (this.isObjectTypePropsChanged(prevProps)) {
+        this.container.setOptions(this.getContainerOptions())
       }
     }
+  }
+
+  isObjectTypePropsChanged(prevProps: ContainerProps) {
+    const { render, children, style, ...containerOptions } = this.props;
+
+    for (const _key in containerOptions) {
+      const key = _key as keyof ContainerOptions;
+      if (containerOptions.hasOwnProperty(key)) {
+        const prop = containerOptions[key];
+
+        if (typeof prop !== 'function' && prop !== prevProps[key]) {
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 
   render() {
@@ -93,58 +116,25 @@ class Container extends Component<ContainerProps> {
     }
 	}
 	
-	getContainer() {
+  getContainer() {
 		return this.containerRef.current;
 	}
 
-  getContainerOptions(): ContainerProps {
-    const functionProps: any = {};
+  getContainerOptions(): ContainerOptions {
+    return Object.keys(this.props).reduce((result: ContainerOptions, key: string) => {
+      const optionName = key as keyof ContainerOptions;
+      const prop = this.props[optionName];
 
-    if (this.props.onDragStart) {
-      functionProps.onDragStart = this.props.onDragStart.bind(null);
-    }
+      if (typeof prop === 'function') {
+        result[optionName] = (...params: any[]) => {
+          (this.props[optionName] as Function)(...params);
+        }
+      } else {
+        result[optionName] = prop;
+      }
 
-    if (this.props.onDragEnd) {
-			functionProps.onDragEnd = this.props.onDragEnd.bind(null);
-    }
-
-    if (this.props.onDrop) {
-      functionProps.onDrop = this.props.onDrop.bind(null);
-    }
-
-    if (this.props.getChildPayload) {
-      functionProps.getChildPayload = this.props.getChildPayload.bind(null);
-    }
-
-    if (this.props.shouldAnimateDrop) {
-      functionProps.shouldAnimateDrop = this.props.shouldAnimateDrop.bind(null);
-    }
-
-    if (this.props.shouldAcceptDrop) {
-      functionProps.shouldAcceptDrop = this.props.shouldAcceptDrop.bind(null);
-    }
-
-    if (this.props.onDragEnter) {
-      functionProps.onDragEnter = this.props.onDragEnter.bind(null);
-    }
-
-    if (this.props.onDragLeave) {
-      functionProps.onDragLeave = this.props.onDragLeave.bind(null);
-    }
-
-    if (this.props.render) {
-      functionProps.render = this.props.render.bind(null);
-    }
-
-    if (this.props.onDropReady) {
-      functionProps.onDropReady = this.props.onDropReady.bind(null);
-    }
-
-    if (this.props.getGhostParent) {
-      functionProps.getGhostParent = this.props.getGhostParent.bind(null);
-    }
-
-    return Object.assign({}, this.props, functionProps);
+      return result;
+    },{}) as ContainerOptions;
   }
 }
 
