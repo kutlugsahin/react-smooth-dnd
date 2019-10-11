@@ -1,4 +1,5 @@
 import React, { Component, CSSProperties } from 'react';
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types';
 import { smoothDnD as container, ContainerOptions, SmoothDnD } from 'smooth-dnd';
 import { dropHandlers } from 'smooth-dnd';
@@ -64,7 +65,8 @@ class Container extends Component<ContainerProps> {
 
   componentDidMount() {
     this.prevContainer = this.getContainer();
-    this.container = container(this.getContainer(), this.getContainerOptions());
+    var __container = ReactDOM.findDOMNode(this.getContainer());
+    this.container = container(__container || this.getContainer(), this.getContainerOptions());
   }
 
   componentWillUnmount() {
