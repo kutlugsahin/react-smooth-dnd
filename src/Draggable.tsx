@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropsWithChildren } from 'react';
 import PropTypes from 'prop-types';
 import { constants } from 'smooth-dnd';
 const {
@@ -10,7 +10,7 @@ export interface DraggableProps {
 	className?: string;
 }
 
-class Draggable extends Component<DraggableProps> {
+class Draggable extends Component<PropsWithChildren<DraggableProps>> {
 	public static propsTypes = {
 		render: PropTypes.func,
 		className: PropTypes.string,
@@ -20,7 +20,7 @@ class Draggable extends Component<DraggableProps> {
 		if (this.props.render) {
 			return React.cloneElement(this.props.render(), { className: wrapperClass });
 		}
-		
+
 		const clsName = `${this.props.className ? (this.props.className + ' ') : ''}`
 		return (
 			<div {...this.props} className={`${clsName}${wrapperClass}`} >
