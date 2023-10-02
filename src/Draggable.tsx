@@ -17,13 +17,15 @@ class Draggable extends Component<DraggableProps> {
 	}
 
 	render() {
+		const clsName = `${this.props.className ? (this.props.className + ' ') : ''}`
+		const fullClsName = `${clsName}${wrapperClass}`
+		
 		if (this.props.render) {
-			return React.cloneElement(this.props.render(), { className: wrapperClass });
+			return React.cloneElement(this.props.render(), { className: fullClsName });
 		}
 		
-		const clsName = `${this.props.className ? (this.props.className + ' ') : ''}`
 		return (
-			<div {...this.props} className={`${clsName}${wrapperClass}`} >
+			<div {...this.props} className={fullClsName} >
 				{this.props.children}
 			</div>
 		);
