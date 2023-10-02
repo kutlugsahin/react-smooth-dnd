@@ -19,25 +19,23 @@ npm i react-smooth-dnd
 
 
 ```jsx
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Draggable } from 'react-smooth-dnd';
 
-class SimpleSortableList extends Component {
-  render() {
+function SimpleSortableList(props) {
     return (
       <div>
-        <Container onDrop={this.props.onDrop}>
-          {this.props.items.map(item => {
+        <Container onDrop={props.onDrop}>
+          {props.items.map(item => {
             return (
               <Draggable key={item.id}>
-                {this.props.renderItem(item)}
+                {props.renderItem(item)}
               </Draggable>
             );
           })}
         </Container>
       </div>
     );
-  }
 }
 ```
 
